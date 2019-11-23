@@ -1,0 +1,7 @@
+{
+  "name": "ip2-naturkosmetik",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
