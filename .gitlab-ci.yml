@@ -1,0 +1,64 @@
+before_script:
+  - node -v
+  - npm -v
+
+build:
+    stage: build
+    tags:
+      - nodejs
+    cache:
+        paths:
+          - node_modules/
+    script:
+      - apt-get update
+      - apt-get install bzip2
+      - npm i # --silent
+      - npm i ionic cordova --silent
+      - node_modules/.bin/ionic build --prod
+    artifacts:
+        expire_in: 20 mins
+        paths:
+          - www/
+        
+#test_cache:
+#    stage: build
+#    tags:
+#      - ng-test
+#    cache:
+#        key: test-cache
+#        paths:
+#          - node_modules/
+#    script:
+#      - npm i
+        
+#test:
+#    stage: test
+#    tags:
+#      - ng-test
+#    cache:
+#        key: test-cache
+#        policy: pull
+#        paths:
+#          - node_modules/
+#    script:
+#      #- npm i
+#      - npm i @angular-devkit/build-angular
+#      - npm run test-ci
+#    when: manual
+     
+        
+deploy:webapp:
+    stage: deploy
+    tags:
+      - nodejs
+    only:
+      - master
+    dependencies:
+      - build
+    cache:
+      policy: pull
+      paths:
+        - node_modules/
+    script:
+      - npm i firebase-tools
+      - node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
