@@ -1,0 +1,113 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+// generated with https://ionicframework.com/docs/theming/color-generator
+:root {
+
+    --ion-font-family: Roboto, 'sans-serif' !important;
+    --ion-font-family-text: 'Cormorant Garamond', serif;
+
+    /* Change tabbar active color to secondary */
+    /*ion-tab-button.tab-selected {
+        ion-icon, ion-label {
+            color: var(--ion-color-secondary) !important;
+            --ion-color-base: var(--ion-color-secondary) !important;
+        }
+    }*/
+
+    /* adjust spacing between header and statusbar on iOS */
+    .ios {
+        app-home, app-news {
+            --ion-safe-area-top: 12px;
+        }
+    }
+
+    /* set background color of LoginPage and RegisterPage */
+    app-login, app-register {
+        --ion-background-color: var(--ion-color-secondary);
+    }
+
+
+    /* set item height on points card on HomePage */
+    app-home .points ion-list.last-bought ion-item {
+        --min-height: 38px;
+        --ion-safe-area-right: 0px;
+        --inner-padding-end: 0px;
+    }
+
+    /* set font-size of points in timeline */
+    app-history .timeline-item-points {
+        font-size: 20px !important;
+    }
+
+    /* show toast above bottom tabbar */
+    .toast-bottom-position {
+        transform: translateY(-64px) !important;
+    }
+
+
+    --ion-color-primary: #C38F7E;
+    --ion-color-primary-rgb: 195, 143, 126;
+    --ion-color-primary-contrast: #000000;
+    --ion-color-primary-contrast-rgb: 0, 0, 0;
+    --ion-color-primary-shade: #ac7e6f;
+    --ion-color-primary-tint: #c99a8b;
+
+    --ion-color-secondary: #6BB3A2;
+    --ion-color-secondary-rgb: 107, 179, 162;
+    --ion-color-secondary-contrast: #000000;
+    --ion-color-secondary-contrast-rgb: 0, 0, 0;
+    --ion-color-secondary-shade: #5e9e8f;
+    --ion-color-secondary-tint: #7abbab;
+
+    --ion-color-tertiary: #FFD9CC;
+    --ion-color-tertiary-rgb: 255, 217, 204;
+    --ion-color-tertiary-contrast: #000000;
+    --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+    --ion-color-tertiary-shade: #e0bfb4;
+    --ion-color-tertiary-tint: #ffddd1;
+
+    --ion-color-success: #5FBF50;
+    --ion-color-success-rgb: 95, 191, 80;
+    --ion-color-success-contrast: #000000;
+    --ion-color-success-contrast-rgb: 0, 0, 0;
+    --ion-color-success-shade: #54a846;
+    --ion-color-success-tint: #6fc562;
+
+    --ion-color-warning: #F7CF31;
+    --ion-color-warning-rgb: 247, 207, 49;
+    --ion-color-warning-contrast: #000000;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
+    --ion-color-warning-shade: #d9b62b;
+    --ion-color-warning-tint: #f8d446;
+
+    --ion-color-danger: #DB5757;
+    --ion-color-danger-rgb: 219, 87, 87;
+    --ion-color-danger-contrast: #ffffff;
+    --ion-color-danger-contrast-rgb: 255, 255, 255;
+    --ion-color-danger-shade: #c14d4d;
+    --ion-color-danger-tint: #df6868;
+
+    --ion-color-dark: #222428;
+    --ion-color-dark-rgb: 34, 34, 34;
+    --ion-color-dark-contrast: #ffffff;
+    --ion-color-dark-contrast-rgb: 255, 255, 255;
+    --ion-color-dark-shade: #1e2023;
+    --ion-color-dark-tint: #383a3e;
+
+    --ion-color-medium: #989aa2;
+    --ion-color-medium-rgb: 152, 154, 162;
+    --ion-color-medium-contrast: #ffffff;
+    --ion-color-medium-contrast-rgb: 255, 255, 255;
+    --ion-color-medium-shade: #86888f;
+    --ion-color-medium-tint: #a2a4ab;
+
+    --ion-color-light: #f4f5f8;
+    --ion-color-light-rgb: 244, 244, 244;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0, 0, 0;
+    --ion-color-light-shade: #d7d8da;
+    --ion-color-light-tint: #f5f6f9;
+}

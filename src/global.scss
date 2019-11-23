@@ -1,0 +1,42 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+
+ion-searchbar.header-search input {
+    border-radius: 6px !important;
+}
+
+/* make toolbar transparant */
+/* https://gist.github.com/paulstelzer/cca1aa1a8669e985dbfa0bfd262093eb */
+
+.md {
+    .header-transparent {
+        ion-toolbar {
+            --background: transparent;
+            --ion-color-base: transparent !important;
+        }
+
+        ion-searchbar {
+            padding-top: 7px !important;
+        }
+    }
+}
+
+/* Remove bottom border on md */
+.header-transparent.header-md::after {
+    background-image: none;
+}
+
+/* Remove bottom border on ios */
+.header-transparent.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
