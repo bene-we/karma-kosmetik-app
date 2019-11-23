@@ -1,0 +1,43 @@
+<ion-header class="" #header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/app/home">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>Punkteübersicht</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content scrollEvents="true" appHideHeader [header]="header">
+
+    <!-- Canvas for the doughnut chart -->
+    <div class="canvas-container">
+        <canvas #canvas></canvas>
+    </div>
+
+    <!-- Rewards section goes here -->
+    <br>
+    <br>
+
+    <ion-text class="rewards-title">
+        Punkte einlösen
+    </ion-text>
+
+
+    <ion-list>
+        <ion-item
+                *ngFor="let b of productService.rewards | async"
+                button
+                (click)="cashReward(b.id, b.description, b.name, b.points)">
+            <ion-label text-wrap class="reward-label">
+                <ion-text class="reward-name">{{ b.name }}</ion-text>
+                <br>
+                <ion-text class="reward-description">{{ b.description }}</ion-text>
+            </ion-label>
+            <ion-text slot="end" class="reward-points" color="danger">
+                {{ b.points }}
+            </ion-text>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

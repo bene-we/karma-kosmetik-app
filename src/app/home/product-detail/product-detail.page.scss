@@ -1,0 +1,62 @@
+$padding: 0 16px 0 16px;
+
+.sub-header {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ion-color-secondary);
+}
+
+.product-name-container {
+    margin: 8px 0;
+
+    .product-name {
+        font-weight: 500;
+        font-size:20px;
+    }
+
+    .product-claim {
+        display: inline-block;
+        font-style: italic;
+        font-size: 14px;
+    }
+
+    ion-text {
+        padding: $padding;
+    }
+}
+
+.product-description {
+    padding: $padding;
+    margin: 8px 0;
+    color: var(--ion-color-dark-tint);
+    text-align: justify;
+}
+
+.item-container {
+    margin: 8px 0;
+}
+
+.product-ingredients {
+    margin: 32px 0 8px 0;
+    padding: $padding;
+}
+
+.product-additional-ingredients {
+    margin: 32px 0 8px 0;
+    padding: $padding;
+}
+
+.product-steps {
+    margin: 32px 0 8px 0;
+    padding: $padding;
+
+    .step-container {
+        padding: 8px;
+        background: var(--ion-color-secondary);
+        border-radius: 6px;
+        color: white;
+        margin: 0 auto;
+        width: 30px;
+        height: 30px;
+    }
+}

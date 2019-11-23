@@ -1,0 +1,76 @@
+<ion-header class="" #header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/app/home">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>Produktdetails</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content scrollEvents="true" appHideHeader [header]="header">
+
+    <div class="product-container" *ngIf="product | async as p">
+
+        <div class="product-name-container">
+            <ion-text class="product-name" color="secondary">
+                {{ p.name }}
+            </ion-text>
+            <ion-text class="product-claim" color="primary">
+                {{ p.claim }}
+            </ion-text>
+        </div>
+        <div class="product-description">
+            {{ p.description }}
+        </div>
+        <div class="product-ingredients">
+            <ion-text class="sub-header">
+                Inhaltliche Zusammensetzung für {{ p.capacity }}g
+            </ion-text>
+            <div class="item-container">
+                <ion-item *ngFor="let i of p.ingredients" no-padding>
+                    {{ i }}
+                </ion-item>
+            </div>
+        </div>
+        <div class="product-additional-ingredients">
+            <ion-text class="sub-header">
+                Zutaten zum Hinzufügen
+            </ion-text>
+            <div class="item-container">
+                <ion-item *ngFor="let a of p.additionalIngredients" no-padding>{{ a }}</ion-item>
+            </div>
+        </div>
+        <div *ngIf="p.application" class="product-application product-steps">
+            <ion-text class="sub-header">
+                Anwendung
+            </ion-text>
+            <ol>
+                <li *ngFor="let a of p.application | orderSteps:'step':'desc'">
+                    {{ a.text }}
+                </li>
+            </ol>
+        </div>
+        <div *ngIf="p.creation" class="product-creation product-steps">
+            <ion-text class="sub-header">
+                Herstellung
+            </ion-text>
+            <div class="item-container">
+                <ion-item no-padding *ngFor="let c of p.creation | orderSteps:'step':'asc'">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size="2">
+                                <div class="step-container">
+                                    {{ c.step }}
+                                </div>
+                            </ion-col>
+                            <ion-col>{{ c.text }}</ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+            </div>
+        </div>
+
+    </div>
+
+</ion-content>

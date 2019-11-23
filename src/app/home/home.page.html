@@ -1,0 +1,120 @@
+<ion-header class="header-transparent" #header>
+    <ion-toolbar>
+        <ion-searchbar #searchbar
+                       class="header-search"
+                       showCancelButton
+                       (ionCancel)="isSearchbarOpened = false"
+                       placeholder="Suche nach Produkten"
+                       (keyup)="doSearch(searchbar.value)"
+                       animated>
+        </ion-searchbar>
+        <!--<ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="more"></ion-icon>
+            </ion-button>
+        </ion-buttons>-->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen scrollEvents="true" appHideHeader [header]="header">
+
+    <ion-list *ngIf="isSearchbarOpened">
+        <ion-item
+                *ngFor="let s of searchedProducts"
+                (click)="searchbar.value = ''; navigateToProduct(s.id)"
+                button>
+            <ion-label>{{ s.name }}</ion-label>
+        </ion-item>
+    </ion-list>
+
+    <!--<button type="button" (click)="test()">Go p d</button>-->
+
+    <ion-card routerDirection="forward"
+              routerLink="/app/home/score"
+              button
+              class="points icon-highlight right"
+              *ngIf="!isSearchbarOpened">
+
+        <div class="icon-hightlight--icon-container" padding>
+            <span>
+            <ion-icon color="light" name="gift"></ion-icon>
+            </span>
+        </div>
+
+        <div class="icon-highlight--content">
+                <ion-card-title>Gesammelte Punkte</ion-card-title>
+                <ion-card-subtitle>
+                    Erhalte eine Übersicht über deinen aktuellen Punktestand und löse sie für viele interessante Boni ein!
+                </ion-card-subtitle>
+            <!--<ion-card-content>
+                <ion-grid no-padding class="score-container">
+                    <ion-row>
+                        <ion-col size="8" no-padding>Gesamtpunkte:</ion-col>
+                        <ion-col no-padding text-right>
+                            <ion-text color="secondary">{{ productService.points | async }} Punkte</ion-text>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="8" no-padding>Für Boni ausgegeben:</ion-col>
+                        <ion-col no-padding text-right>
+                            <ion-text color="danger">{{ productService.cashedPoints | async }} Punkte</ion-text>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>-->
+        </div>
+    </ion-card>
+
+    <ion-card routerDirection="forward"
+              routerLink="/app/home/history"
+              button *ngIf="!isSearchbarOpened"
+              class="icon-highlight right">
+        <div class="icon-highlight--color-bar"></div>
+        <div class="icon-hightlight--icon-container" padding>
+            <span>
+            <ion-icon color="light" name="trending-up"></ion-icon>
+            </span>
+        </div>
+        <div class="icon-highlight--content">
+            <ion-card-title>
+                Aktivitäten
+            </ion-card-title>
+            <ion-card-subtitle>
+                Behalte deine zuletzt gekauften Produkte und eingelösten Punkte im Blick!
+            </ion-card-subtitle>
+        </div>
+    </ion-card>
+
+    <ion-card routerDirection="forward"
+              routerLink="/app/home/profile"
+              button
+              *ngIf="!isSearchbarOpened"
+              class="profile-card icon-highlight right">
+        <div class="icon-highlight--color-bar"></div>
+        <div class="icon-hightlight--icon-container" padding>
+            <span>
+            <ion-icon color="light" name="person"></ion-icon>
+            </span>
+        </div>
+        <div class="icon-highlight--content">
+            <ion-card-title>Profil</ion-card-title>
+            <ion-card-subtitle>
+                Sieh dir dein Profil an führe weiter Funktionen aus!
+            </ion-card-subtitle>
+        </div>
+    </ion-card>
+
+    <ion-card *ngIf="!isSearchbarOpened">
+        <ion-card-header>
+            <ion-card-subtitle>Neuankündigung</ion-card-subtitle>
+            <ion-card-title>Produkt C verfügbar!</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

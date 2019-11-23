@@ -1,0 +1,46 @@
+$iconSize: 180px;
+$colorBarHeight: 30vh;
+
+.color-bar {
+    width: 100%;
+    height: $colorBarHeight;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--ion-color-primary-shade);
+}
+
+;
+
+.icon-container {
+    position: absolute;
+    top: calc(#{$colorBarHeight} - (#{$iconSize} / 2));
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    span {
+        width: $iconSize;
+        height: $iconSize;
+        padding: 16px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background: var(--ion-color-secondary);
+        border: 8px solid white;
+
+        ion-icon {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.content-container {
+    margin-top: calc(#{$colorBarHeight} + (#{$iconSize} / 2) - 56px);
+    padding: 0 32px;
+
+    p {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,50 @@
+<ion-content fullscreen>
+
+    <div class="logo-container"><img alt="Logo" src="https://firebasestorage.googleapis.com/v0/b/ip2-naturkosmetik.appspot.com/o/logo.png?alt=media&token=2ec93f9e-6261-4ed8-924c-eecfc6a9623d"></div>
+
+    <div class="form-container" text-center>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <ion-input text-start formControlName="email" type="text" placeholder="Email" autofocus></ion-input>
+
+            <div class="validation-errors">
+                <ng-container *ngFor="let emailError of validationErrors.email">
+                    <p class="validation-error"
+                       *ngIf="isSubmitted && loginForm.get('email').hasError(emailError.type) &&
+                       (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                        <ion-icon name="alert"></ion-icon> {{ emailError.message }}
+                    </p>
+                </ng-container>
+            </div>
+
+            <ion-input text-start formControlName="password" type="password" placeholder="Passwort"></ion-input>
+
+            <div class="validation-errors">
+                <ng-container *ngFor="let passwordError of validationErrors.password">
+                    <p class="validation-error"
+                       *ngIf="isSubmitted && loginForm.get('password').hasError(passwordError.type) &&
+                       (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                        <ion-icon name="alert"></ion-icon> {{ passwordError.message }}
+                    </p>
+                </ng-container>
+            </div>
+
+            <ion-button fill="outline" type="submit">Einloggen</ion-button>
+
+            <!-- Add button to submit form on enter -->
+            <button type="submit" hidden></button>
+        </form>
+
+    </div>
+
+    <div class="footer-container" text-center>
+        <p>
+            <ion-text color="light">
+                Du hast noch kein Konto?<br>
+                <a routerLink="/app/register">Hier registrieren</a>
+            </ion-text>
+        </p>
+    </div>
+
+</ion-content>

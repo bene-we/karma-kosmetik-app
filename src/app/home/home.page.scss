@@ -1,0 +1,97 @@
+
+.score-container {
+    font-size: 14px;
+    color: var(--ion-color-dark-tint);
+    padding-right: 16px;
+}
+
+.point-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    .points-number {
+        font-size: 4em; line-height: 0.9;
+    }
+
+    .points-number, .points-label {
+        color: var(--ion-color-secondary);
+    }
+}
+
+ion-list.last-bought {
+
+    ion-item {
+        font-size: 14px;
+    }
+}
+
+.icon-highlight {
+    min-height: 100px;
+
+    &.right {
+        .icon-highlight--color-bar {
+            right: 0;
+        }
+
+        .icon-hightlight--icon-container {
+            right: 0;
+        }
+    }
+
+    &.left {
+        .icon-highlight--color-bar {
+            left: 0;
+        }
+
+        .icon-hightlight--icon-container {
+            left: 0;
+        }
+
+        .icon-highlight--content {
+            margin-left: 96px;
+        }
+    }
+
+    .icon-highlight--color-bar {
+        position: absolute;
+        width: 60px;
+        height: 100%;
+        top: 0;
+        background: var(--ion-color-primary-shade);
+        display: none;
+    }
+
+    .icon-hightlight--icon-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        span {
+            width: 80px;
+            height: 80px;
+            padding: 16px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            background: var(--ion-color-primary-shade);
+            border: 8px solid white;
+
+            ion-icon {
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+    }
+
+    .icon-highlight--content {
+        padding: 16px;
+        max-width: 80%;
+    }
+}

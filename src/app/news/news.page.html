@@ -1,0 +1,70 @@
+<ion-header class="header-transparent" #header>
+    <ion-toolbar>
+        <ion-searchbar #searchbar
+                       class="header-search"
+                       placeholder="Suche nach Artikeln"
+                       showCancelButton
+                       (ionCancel)="isSearchbarOpened = false"
+                       (keyup)="doSearch(searchbar.value)">
+        </ion-searchbar>
+        <!--<ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="more"></ion-icon>
+            </ion-button>
+        </ion-buttons>-->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen  scrollEvents="true" appHideHeader [header]="header">
+
+    <ion-list *ngIf="isSearchbarOpened">
+        <ion-item *ngFor="let a of searchedNews"
+                  (click)="searchbar.value = ''; navigateToArticle(a.id)"
+                  button>
+            <ion-label>{{ a.title }}</ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ng-container *ngIf="newsService.news | async as news">
+        <!--suppress HtmlRequiredAltAttribute -->
+        <img *ngFor="let article of news" [src]="article.imageUrl" style="display: none; ">
+    </ng-container>
+
+    <div *ngIf="!isSearchbarOpened">
+        <ng-container *ngIf="newsService.newsDelayed | async as news; else loading">
+            <ion-card
+                    class="article-card"
+                    *ngFor="let article of news"
+                    button
+                    routerDirection="forward"
+                    (click)="router.navigate(['/app/news/news-detail', { id: article.id }])">
+                <img [src]="article.imageUrl" [alt]="article.title">
+                <ion-card-header>
+                    <ion-card-title>{{ article.title }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="article-text">
+                    {{ shortenText(article.text) }}
+                </ion-card-content>
+            </ion-card>
+        </ng-container>
+
+        <ng-template #loading>
+            <ion-card *ngFor="let n of [1, 2, 3] ">
+                <div style="height: 200px; width: 100%;">
+                    <ion-skeleton-text animated style="margin-top: 0 !important; "></ion-skeleton-text>
+                </div>
+                <ion-card-header>
+                    <ion-card-title>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-card-content>
+            </ion-card>
+        </ng-template>
+    </div>
+
+</ion-content>

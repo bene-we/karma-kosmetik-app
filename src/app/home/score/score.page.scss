@@ -1,0 +1,33 @@
+
+.canvas-container {
+    position: relative;
+    height: 50vh;
+    margin-top: 5px;
+}
+
+.rewards-title {
+    margin-top: 24px;
+    padding-left: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 20px;
+}
+
+.reward-label {
+    line-height: 1.0;
+
+    .reward-name {
+        padding-bottom: 10px;
+    }
+
+    .reward-description {
+        font-size: 12px;
+        line-height: 1.2 !important;
+        color: var(--ion-color-medium-shade);
+    }
+}
+
+
+.reward-points {
+    padding-right: 8px;
+}

@@ -1,0 +1,62 @@
+
+ion-content {
+
+
+    ion-slides {
+        height: 100%;
+        background: var(--ion-color-secondary);
+
+        ion-slide {
+            height: 100vh;
+            flex-direction: column;
+
+            ion-text.title {
+                color: var(--ion-color-primary-shade);
+                font-size: 2.2rem;
+                font-weight: 500;
+            }
+
+            ion-text.text {
+                color: var(--ion-color-dark);
+            }
+
+            img.top {
+                position: absolute;
+                top: 8vh;
+                margin: 0 auto;
+                max-width: 40vw;
+                max-height: 40vh;
+            }
+
+
+            &.slide-1 {
+
+                .title-container {
+                    margin-top: 32px;
+                    max-width: 60vw;
+                }
+
+                ion-text.text {
+                    font-size: 1.2rem;
+                    font-style: italic;
+                }
+            }
+
+            &.slide-2, &.slide-3, &.slide-4 {
+
+                p, img {
+                    max-width: 70vw;
+                    max-height: 60vh;
+                }
+
+                p {
+                    ion-text.text {
+                        font-size: 1.1rem;
+                        font-style: italic;
+                    }
+                }
+            }
+
+        }
+    }
+}

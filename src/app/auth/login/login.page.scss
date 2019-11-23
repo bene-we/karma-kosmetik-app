@@ -1,0 +1,56 @@
+$logoHeight: 110px;
+$formHeight: 142px;
+$containerWidth: 60%;
+
+
+/* Contains the logo in the top center screen */
+.logo-container {
+    width: $containerWidth;
+    margin: 30px auto 0 auto;
+    height: $logoHeight;
+}
+
+/* Contains the input fields and a button to register */
+.form-container {
+    margin: calc(50vh - ((#{$formHeight} / 2) + #{$logoHeight})) auto;
+    width: $containerWidth;
+    box-sizing: border-box;
+
+    ion-input {
+        background: var(--ion-color-light);
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+
+    .validation-errors .validation-error {
+        margin-block-start: -5px;
+        text-align: left;
+        font-size: 0.8rem;
+        color: var(--ion-color-dark);
+    }
+
+    ion-button {
+        color: var(--ion-color-primary-shade);
+    }
+
+}
+
+/* Contains a link to login if an account already exists */
+.footer-container {
+
+    bottom: 20px;
+    width: $containerWidth;
+    margin: 0 auto;
+
+    p {
+        font-size: 0.9rem;
+
+        ion-text {
+            color: var(--ion-color-dark-tint);
+
+            a {
+                color: var(--ion-color-primary-shade);
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<!--<ion-header class="header-transparent" #header translucent>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="app/news"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>-->
+
+<ion-content fullscreen>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/app/news"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <div class="article-container" *ngIf="article | async as a">
+        <img [src]="a.imageUrl" [alt]="a.title">
+        <div class="content-container">
+            <div class="title-container">
+                <ion-text class="article-title">{{a.title}}</ion-text>
+            </div>
+            <ion-text class="article-text">{{a.text + a.text + a.text}}</ion-text>
+        </div>
+    </div>
+</ion-content>

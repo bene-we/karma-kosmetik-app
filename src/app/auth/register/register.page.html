@@ -1,0 +1,74 @@
+<ion-content fullscreen>
+
+    <div class="logo-container"><img alt="Logo" src="https://firebasestorage.googleapis.com/v0/b/ip2-naturkosmetik.appspot.com/o/logo.png?alt=media&token=2ec93f9e-6261-4ed8-924c-eecfc6a9623d"></div>
+
+    <div class="form-container" text-center>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <ion-input text-start formControlName="name" type="text" placeholder="Name" autofocus></ion-input>
+
+            <div class="validation-errors">
+                <p class="validation-error"
+                   *ngIf="isSubmitted && registerForm.get('name').hasError(validationErrors.name.type) &&
+                   (registerForm.get('name').dirty || registerForm.get('name').touched)">
+                    <ion-icon name="alert"></ion-icon> {{ validationErrors.name.message }}
+                </p>
+            </div>
+
+            <ion-input text-start formControlName="email" type="text" placeholder="Email"></ion-input>
+
+            <div class="validation-errors">
+                <ng-container *ngFor="let emailError of validationErrors.email">
+                    <p class="validation-error"
+                       *ngIf="isSubmitted && registerForm.get('email').hasError(emailError.type) &&
+                       (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                        <ion-icon name="alert"></ion-icon> {{ emailError.message }}
+                    </p>
+                </ng-container>
+            </div>
+
+            <ion-input text-start formControlName="password" type="password" placeholder="Passwort"></ion-input>
+
+            <div class="validation-errors">
+                <ng-container *ngFor="let passwordConfirmError of validationErrors.password">
+                    <p class="validation-error"
+                       *ngIf="isSubmitted && registerForm.get('password').hasError(passwordConfirmError.type) &&
+                       (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                        <ion-icon name="alert"></ion-icon> {{ passwordConfirmError.message }}
+                    </p>
+                </ng-container>
+            </div>
+
+            <ion-input text-start formControlName="confirmPassword" type="password" placeholder="Passwort wiederholen"></ion-input>
+
+            <div class="validation-errors">
+                <ng-container *ngFor="let passwordConfirmError of validationErrors.confirmPassword">
+                    <p class="validation-error"
+                       *ngIf="isSubmitted && registerForm.get('confirmPassword').hasError(passwordConfirmError.type) &&
+                       (registerForm.get('confirmPassword').dirty || registerForm.get('confirmPassword').touched)">
+                        <ion-icon name="alert"></ion-icon> {{ passwordConfirmError.message}}
+                    </p>
+                </ng-container>
+            </div>
+
+            <ion-button fill="outline" type="submit">
+                Registrieren
+            </ion-button>
+
+            <!-- Add button to submit form on enter -->
+            <button type="submit" hidden></button>
+        </form>
+
+    </div>
+
+    <div class="footer-container" text-center>
+        <p>
+            <ion-text color="light">
+                Du bist schon registriert?<br>
+                <a routerLink="/app/login">Hier einloggen</a>
+            </ion-text>
+        </p>
+    </div>
+
+</ion-content>

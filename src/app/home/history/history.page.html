@@ -1,0 +1,51 @@
+<ion-header class="" #header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="app/home" ></ion-back-button>
+        </ion-buttons>
+        <ion-title>Timeline</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content scrollEvents="true" appHideHeader [header]="header">
+
+    <ul class="timeline">
+
+        <li *ngFor="let t of productService.transactions | async">
+            <ion-card>
+                <ion-card-content>
+                    <ion-item lines="none" no-padding no-margin>
+                        <div class="meta-container">
+                            <span class="timeline-item-name">{{ t.name }}</span><br>
+                            <span class="timeline-item-timestamp">{{ t.timestamp | firestoreDate:'dd.MM.yyyy' }}</span><br>
+                            <span class="timeline-item-price" *ngIf="t.product">{{ t.product.price | currency:'EUR' }}</span>
+                        </div>
+                        <ion-text class="timeline-item-points" slot="end" [color]="t.product ? 'success' : 'danger'">
+                            {{ t.product ? '+' : '-'}} {{ t.product ? t.points : t.points * (-1) }}
+                            <ion-icon [name]="t.product ? 'trending-up' : 'trending-down'"></ion-icon>
+                        </ion-text>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </li>
+
+        <!--<li>
+            <ion-card>
+                <ion-card-content>
+                    <ion-item lines="none" no-padding no-margin>
+                        <div class="meta-container">
+                            <span class="timeline-item-name">Tutti Frutti</span><br>
+                            <span class="timeline-item-timestamp">22.06.2019</span><br>
+                            <span class="timeline-item-price">3,99€</span>
+                        </div>
+                        <ion-text class="timeline-item-points" slot="end">
+                            +6
+                            <ion-icon name="trending-up"></ion-icon>
+                        </ion-text>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </li>-->
+
+    </ul>
+</ion-content>
