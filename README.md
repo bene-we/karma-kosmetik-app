@@ -35,5 +35,22 @@ Durch bereitgestellte News und Artikel soll die App den Kunden für die Themen K
 
 Diese User Stories bieten abgeschlossene Features, die mittels eines agilen Entwicklungsansatzes inkrementell umgesetzt werden.
 
+## Tech-Stack
+
+<img src="report/assets/how-it-works.PNG"><br>
+*Arbeitsweise der Frameworks. Quelle: https://code.tutsplus.com/tutorials/ionic-from-scratch-what-is-ionic--cms-29323*
+
+## Showcase
+
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img src="report/confluence-final-screenshots/01-login.png" alt="Login" width=300><br>*Mit Benutzerkonto einloggen*|<img src="report/confluence-final-screenshots/02-register.png" alt="Register"><br>*Als neuer Nutzer registrieren*|<img src="report/confluence-final-screenshots/03-home.png" alt="Home Screen"><br>*Home Screen*|
+|<img src="report/confluence-final-screenshots/04-score.png" alt="Score"><br>*Score*|<img src="report/confluence-final-screenshots/05-rewards.png" alt="Rewards"><br>*Belohnungen*|<img src="report/confluence-final-screenshots/06-history.png" alt="Transaction History"><br>*Verlauf der Punktezahl*|
+|<img src="report/confluence-final-screenshots/07-product_search.png" alt="Product Search"><br>*Produkt-Suche*|<img src="report/confluence-final-screenshots/08-product_detail.png" alt="Product Detail"><br>*Detail-Seite eines Produkts*|<img src="report/confluence-final-screenshots/09-product_detail2.png" alt=""><br>*Listen auf der Detail-Seite* |
+|<img src="report/confluence-final-screenshots/10-news.png" alt="News"><br>*News-Seite mit aktuellen Artikeln*|<img src="report/confluence-final-screenshots/11-news2.png" alt=""><br>*Weitere Artikel* |<img src="report/confluence-final-screenshots/12-news_detail.png" alt="News Detail"><br>*Ein Artikel von der News-Seite*|
+
+
+
+
 
 
