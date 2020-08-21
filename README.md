@@ -42,6 +42,8 @@ Diese User Stories bieten abgeschlossene Features, die mittels eines agilen Entw
 
 ## Showcase
 
+Kurze Demo-Videos sind unter [report/demo](report/demo) zu finden.
+
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img src="report/confluence-final-screenshots/01-login.png" alt="Login" width=300><br>*Mit Benutzerkonto einloggen*|<img src="report/confluence-final-screenshots/02-register.png" alt="Register"><br>*Als neuer Nutzer registrieren*|<img src="report/confluence-final-screenshots/03-home.png" alt="Home Screen"><br>*Home Screen*|
